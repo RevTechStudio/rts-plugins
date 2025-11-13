@@ -11,4 +11,4 @@
 | coding-conventions | コーディング規則を定義 | - |
 | version-control-guidelines | Git運用のガイドライン（ブランチ戦略、コミットメッセージ、プルリクエスト、マージ方針） | - |
 | issue-management-guidelines | Issue投稿・テンプレート等 | - |
-| security-guidelines | 全フェーズで考慮すべきセキュリティ原則（認証・認可、機密情報取り扱い、セキュアコーディング、脆弱性チェックリスト） | - |
+| security-guidelines | 全フェーズで考慮すべきセキュリティ原則（認証・認可、機密情報取り扱い、セキュアコーディング、脆弱性チェックリスト） | 完 |
