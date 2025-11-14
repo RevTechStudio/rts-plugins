@@ -34,9 +34,9 @@
 
 | 要素名 | 概要 | 完了 |
 |--------|------|-----|
-| plugin-architecture-convention | プラグイン全体の構造設計原則（要素の役割分担、階層構造） | - |
-| element-definition-convention | プラグイン要素の定義ルール（命名規則、必須項目、記述フォーマット） | - |
-| skill-granularity-convention | スキルの適切な粒度を定義（1スキル1目的、分割基準、結合基準） | - |
+| plugin-architecture-convention | プラグイン全体の構造設計原則（要素の役割分担、階層構造） | 完 |
+| element-definition-convention | プラグイン要素の定義ルール（命名規則、必須項目、記述フォーマット） | 完 |
+| skill-granularity-convention | スキルの適切な粒度を定義（1スキル1目的、分割基準、結合基準） | 完 |
 
 ---
 
