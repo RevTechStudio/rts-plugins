@@ -7,35 +7,43 @@ description: Git運用ガイドライン、ブランチ戦略、コミットメ�
 
 ## 概要
 
-このSkillは、Gitを使用したバージョン管理の運用ガイドラインを定義する。個人開発ではスピードを重視したシンプルな運用、チーム開発では品質とコラボレーションのバランスを重視した運用を実現することを目的とする。
+このSkillは、Gitを使用したバージョン管理の運用ガイドラインを定義する。Conventional Commits形式のコミットメッセージ、適切なPRレビュープロセス、Semantic Versioningによるリリース管理など、品質を担保しつつ効率的な開発を実現することを目的とする。個人開発ではセルフレビュー可、チーム開発では最低1名のレビュー承認が必要となる。
 
 ## 責任範囲
 
 このSkillは以下の範囲をカバーする:
 
-- 個人開発とチーム開発の運用方針の使い分け
+- 個人開発とチーム開発の運用方針
 - ブランチ戦略（個人開発・チーム開発別）
-- コミットメッセージの記述ルール
+- コミットメッセージの記述ルール（Conventional Commits形式）
 - プルリクエストのガイドライン
 - マージ方針とコンフリクト解決
-- タグとリリース管理
-- .gitignoreの設定ガイドライン
+- タグとリリース管理（Semantic Versioning）
 
 ## 基本方針
 
-### 個人開発の場合（スピード重視）
+### 共通ルール
+
+以下のルールは個人開発・チーム開発に関わらず適用する:
+
+- コミットメッセージ、PR、IssueにAI自動生成署名を記述しない
+- メッセージは原則として英語で記述する
+- チームの主要言語が英語以外の場合はその言語の使用を許可する
+- プロジェクトにテンプレートがある場合はそちらを優先的に使用する
+
+### 個人開発の場合
 
 - シンプルなブランチ戦略を採用する
-- コミットメッセージは簡潔でOK
-- PRは任意（自己レビューで十分な場合はスキップ可）
+- コミットメッセージはConventional Commits形式で記述する
+- セルフレビュー可
 - 素早く実装して素早くリリースする
 - ローカルでの実験的な作業を許容する
 
-### チーム開発の場合（バランス重視）
+### チーム開発の場合
 
-- 明確なブランチ戦略を採用する
-- コミットメッセージは詳細に記述する
-- PRは必須でレビュープロセスを経る
+- Git Flowブランチ戦略を採用する
+- コミットメッセージはConventional Commits形式で詳細に記述する
+- 最低1名のレビュー承認が必要
 - 品質とスピードのバランスを取る
 - チーム全体でルールを統一する
 
@@ -138,36 +146,6 @@ git push origin hotfix/login-error
 
 ## コミットメッセージ
 
-### コミットメッセージ: 個人開発の場合
-
-簡潔で分かりやすいメッセージを記述する。
-
-**基本形式**:
-
-```text
-実装内容や修正内容を簡潔に記述
-```
-
-良い例:
-
-```text
-ユーザー認証機能を実装
-ログインバグを修正
-パフォーマンスを改善
-README更新
-```
-
-悪い例:
-
-```text
-修正
-update
-fix
-WIP
-```
-
-### コミットメッセージ: チーム開発の場合
-
 Conventional Commits形式を採用し、詳細な情報を記述する。
 
 **基本形式**:
@@ -200,6 +178,7 @@ Conventional Commits形式を採用し、詳細な情報を記述する。
 **Body（任意）**:
 
 - 変更の理由や背景を記述
+- 箇条書き（-）で記述する
 - 72文字で改行
 
 **Footer（任意）**:
@@ -210,20 +189,21 @@ Conventional Commits形式を採用し、詳細な情報を記述する。
 良い例:
 
 ```text
-feat: ユーザープロフィール編集機能を追加
+feat: add user profile editing feature
 
-ユーザーが自分のプロフィール情報（名前、メールアドレス、
-プロフィール画像）を編集できる機能を実装した。
+- Implement profile information editing (name, email, avatar)
+- Add validation for profile fields
+- Update user settings page UI
 
 Closes #123
 ```
 
 ```text
-fix: ログイン時のセッションタイムアウト問題を修正
+fix: resolve session timeout issue on login
 
-セッションの有効期限が正しく設定されず、ログイン後すぐに
-タイムアウトする問題を修正した。セッション管理ロジックを
-見直し、有効期限を30分に設定した。
+- Fix session expiration not being set correctly
+- Review session management logic
+- Set session timeout to 30 minutes
 
 Fixes #456
 ```
@@ -231,51 +211,36 @@ Fixes #456
 破壊的変更の例:
 
 ```text
-feat: 認証APIのエンドポイントを変更
+feat: change authentication API endpoint
 
-認証APIのエンドポイントを /auth から /api/v2/auth に変更した。
-これにより、既存のクライアントは更新が必要になる。
+- Migrate endpoint from /auth to /api/v2/auth
+- Update API documentation
+- Add deprecation notice for old endpoint
 
-BREAKING CHANGE: 認証APIのエンドポイントが変更されました。
-/auth は廃止され、/api/v2/auth を使用してください。
+BREAKING CHANGE: Authentication API endpoint has been changed.
+The /auth endpoint is deprecated, please use /api/v2/auth instead.
 ```
 
-### コミットの粒度: 個人開発とチーム開発
+悪い例（AI自動生成署名の使用）:
 
-**個人開発の場合**:
+```text
+feat: add user profile editing feature
 
-- 機能単位でコミットする
-- 細かく分けすぎない（まとめてOK）
-- WIPコミットも許容する
+- Implement profile information editing
 
-**チーム開発の場合**:
+Closes #123
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
+### コミットの粒度
 
 - 論理的な変更単位でコミットする
 - 1つのコミットで1つの変更を表現する
 - WIPコミットは避ける（最終的にsquashする）
 
 ## プルリクエスト（PR）
-
-### プルリクエスト: 個人開発の場合
-
-PRは任意とする。以下の場合はPRをスキップしてよい:
-
-- 小規模な修正（タイポ修正、コメント追加など）
-- 実験的な実装
-- 個人プロジェクトで自己レビューが十分な場合
-
-PRを作成する場合は、簡潔な説明で十分。
-
-良い例:
-
-```markdown
-## 概要
-ユーザー認証機能を実装しました。
-```
-
-### プルリクエスト: チーム開発の場合
-
-PRは必須とする。
 
 **PRのタイトル**:
 
@@ -293,47 +258,61 @@ PRは必須とする。
 PRテンプレート例:
 
 ```markdown
-## 概要
-この変更の概要を記載してください。
+## Summary
+Please describe the summary of this change.
 
-## 変更内容
-- 変更内容1
-- 変更内容2
-- 変更内容3
+## Changes
+- Change 1
+- Change 2
+- Change 3
 
-## 変更の理由
-なぜこの変更が必要だったのかを記載してください。
+## Motivation
+Why was this change necessary?
 
-## 動作確認
-- [ ] ローカル環境で動作確認済み
-- [ ] テストケースを追加した
-- [ ] 既存のテストが通ることを確認した
+## Testing
+- [ ] Tested in local environment
+- [ ] Added test cases
+- [ ] Verified existing tests pass
 
-## レビュー観点
-レビュアーに特に確認してほしい点を記載してください。
+## Review Focus
+Please describe what reviewers should focus on.
 
-## 関連Issue
+## Related Issues
 Closes #123
 ```
 
-### PRのレビュー: 個人開発とチーム開発
+悪い例（AI自動生成署名の使用）:
 
-**個人開発の場合**:
+```markdown
+## Summary
+Implemented user profile editing feature.
 
-- セルフレビューでOK
-- CI/CDが通ればマージ可
+## Changes
+- Add profile editing UI
+- Add validation logic
 
-**チーム開発の場合**:
+Closes #123
 
-- 最低1名の承認が必要
-- コードレビューのポイント:
-  - コーディング規約に従っているか
-  - テストが適切に追加されているか
-  - セキュリティ上の問題がないか
-  - パフォーマンスへの影響
-  - ドキュメントが更新されているか
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-レビューコメントの書き方:
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
+### PRのレビュー
+
+- 個人開発の場合はセルフレビューでOK
+- チーム開発の場合は最低1名の承認が必要
+- CI/CDが通ることを確認する
+
+**コードレビューのポイント**:
+
+- コーディング規約に従っているか
+- テストが適切に追加されているか
+- セキュリティ上の問題がないか
+- パフォーマンスへの影響
+- ドキュメントが更新されているか
+
+**レビューコメントの書き方**:
 
 ```markdown
 # 良いコメント例
@@ -353,34 +332,27 @@ Closes #123
 
 ## マージ方針
 
-### マージ方針: 個人開発の場合
+### マージ方法
 
-**マージ方法**:
+**個人開発（シンプルブランチ戦略）の場合**:
 
 - Merge Commit: 履歴を残したい場合
 - Squash and Merge: コミット履歴をシンプルにしたい場合（推奨）
 - Rebase and Merge: 線形の履歴を保ちたい場合
 
-**コンフリクト解決**:
-
-- ローカルで解決してpush
-- シンプルな方法を選ぶ
-
-### マージ方針: チーム開発の場合
-
-**マージ方法**:
+**チーム開発（Git Flow）の場合**:
 
 - `feature` → `develop`: Squash and Merge（推奨）
 - `develop` → `main`: Merge Commit（履歴を保つ）
 - `hotfix` → `main`: Merge Commit（緊急性を記録）
 
-**コンフリクト解決**:
+### コンフリクト解決
 
-- コンフリクトが発生したら、必ず元のブランチ（develop）を最新化してから解決する
+- コンフリクトが発生したら、必ず元のブランチを最新化してから解決する
 - 解決後は必ずテストを実行する
 - 不明な点があればチームに相談する
 
-良い例:
+コンフリクト解決例:
 
 ```bash
 # developを最新化してコンフリクト解決
@@ -396,17 +368,6 @@ git push origin feature/user-profile --force-with-lease
 ```
 
 ## タグとリリース管理
-
-### タグとリリース: 個人開発の場合
-
-リリース時に任意でタグを付ける。
-
-```bash
-git tag -a v1.0.0 -m "初回リリース"
-git push origin v1.0.0
-```
-
-### タグとリリース: チーム開発の場合
 
 セマンティックバージョニング（Semantic Versioning）を採用する。
 
@@ -431,84 +392,15 @@ git tag -a v2.0.0 -m "認証APIのエンドポイントを変更（Breaking Chan
 git push origin --tags
 ```
 
-## .gitignoreの設定
-
-### .gitignoreの基本ルール
-
-以下のファイルは必ず.gitignoreに追加する:
-
-**環境依存ファイル**:
-
-- `.env`
-- `*.local`
-- `.vscode/settings.json`（チーム共通設定以外）
-
-**ビルド生成物**:
-
-- `bin/`
-- `obj/`
-- `dist/`
-- `build/`
-- `node_modules/`
-
-**OS生成ファイル**:
-
-- `.DS_Store`
-- `Thumbs.db`
-- `desktop.ini`
-
-**機密情報**:
-
-- `*.key`
-- `*.pem`
-- `credentials.json`
-- `secrets.yaml`
-
-良い例（.NET プロジェクト）:
-
-```gitignore
-# ビルド生成物
-bin/
-obj/
-*.dll
-*.exe
-*.pdb
-
-# ユーザー固有ファイル
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-# 環境変数
-.env
-.env.local
-appsettings.Development.json
-
-# OS生成ファイル
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
-```
-
 ## ベストプラクティス
-
-### ベストプラクティス: 個人開発の場合
 
 - 頻繁にコミットする
 - 定期的にリモートにpushする（バックアップ）
-- 実験的なブランチは気軽に作成する
+- 実験的なブランチは気軽に作成する（個人開発の場合）
 - 不要になったブランチはこまめに削除する
-
-### ベストプラクティス: チーム開発の場合
-
-- developブランチを常に最新に保つ
+- developブランチを常に最新に保つ（チーム開発の場合）
 - PRは小さく保つ（500行以内を目安）
-- レビューは24時間以内に対応する
+- レビューは24時間以内に対応する（チーム開発の場合）
 - コンフリクトは早めに解消する
 - コミット前にテストを実行する
 - 機密情報をコミットしない
@@ -517,27 +409,16 @@ Thumbs.db
 
 ### ブランチ作成時
 
-**個人開発**:
-
-- [ ] mainから最新のコードを取得した
-- [ ] 適切なブランチ名を付けた（feat/、fix/など）
-
-**チーム開発**:
-
-- [ ] developから最新のコードを取得した
-- [ ] 適切なブランチ名を付けた（feature/、fix/など）
+- [ ] 最新のコードを取得した（個人開発: main、チーム開発: develop）
+- [ ] 適切なブランチ名を付けた（個人開発: feat/fix/、チーム開発: feature/fix/）
 - [ ] ブランチの目的が明確である
 
 ### コミット時
 
-**個人開発**:
-
-- [ ] 簡潔で分かりやすいコミットメッセージを記述した
-- [ ] 機密情報を含めていない
-
-**チーム開発**:
-
 - [ ] Conventional Commits形式でコミットメッセージを記述した
+- [ ] メッセージを英語で記述した（チームの主要言語が英語以外の場合はその言語でOK）
+- [ ] 本文を箇条書き（-）で記述した
+- [ ] AI自動生成署名を含めていない
 - [ ] 論理的な変更単位でコミットした
 - [ ] テストが通ることを確認した
 - [ ] 機密情報を含めていない
@@ -545,45 +426,28 @@ Thumbs.db
 
 ### PR作成時
 
-**個人開発**:
-
-- [ ] 必要に応じてPRを作成した
-- [ ] 簡潔な説明を記載した
-
-**チーム開発**:
-
-- [ ] PRテンプレートに従って記載した
+- [ ] PRテンプレートに従って記載した（プロジェクトにテンプレートがある場合はそちらを優先）
+- [ ] 説明を英語で記述した（チームの主要言語が英語以外の場合はその言語でOK）
+- [ ] AI自動生成署名を含めていない
 - [ ] 関連Issueを参照した（Closes #123）
 - [ ] 動作確認を実施した
 - [ ] テストを追加した
 - [ ] ドキュメントを更新した（必要に応じて）
-- [ ] レビュアーを指定した
+- [ ] レビュアーを指定した（チーム開発の場合）
 
 ### マージ時
 
-**個人開発**:
-
 - [ ] 動作確認が完了している
-- [ ] CI/CDが通っている（設定している場合）
-
-**チーム開発**:
-
-- [ ] レビュー承認を得た
+- [ ] レビュー承認を得た（個人開発の場合はセルフレビュー、チーム開発の場合は最低1名）
 - [ ] CI/CDが通っている
 - [ ] コンフリクトが解消されている
-- [ ] developブランチが最新である
+- [ ] ベースブランチが最新である（チーム開発の場合は特にdevelopブランチ）
 - [ ] テストが通っている
 
 ### リリース時
 
-**個人開発**:
-
 - [ ] 動作確認が完了している
-- [ ] 必要に応じてタグを付けた
-
-**チーム開発**:
-
-- [ ] releaseブランチから最終確認を実施した
+- [ ] releaseブランチから最終確認を実施した（チーム開発の場合）
 - [ ] セマンティックバージョニングに従ってタグを付けた
 - [ ] リリースノートを作成した
-- [ ] mainとdevelopの両方に反映した
+- [ ] mainとdevelopの両方に反映した（チーム開発の場合）

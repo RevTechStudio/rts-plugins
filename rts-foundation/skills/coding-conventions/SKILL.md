@@ -799,8 +799,9 @@ var result = processor.ProcessOrder(order);
 ```csharp
 ProcessOrder(order); // 顧客の注文を処理する（コードと同じ行は禁止）
 var result = processor.ProcessOrder(order); // 注文を実行する（コードと同じ行は禁止）
-// コメントの前に空行がない
 var processor = new OrderProcessor();
+// この行の前に空行がない（悪い例）
+var result = processor.ProcessOrder(order);
 ```
 
 ### XMLドキュメント

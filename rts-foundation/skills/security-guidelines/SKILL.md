@@ -1,6 +1,6 @@
 ---
 name: security-guidelines
-description: セキュアな開発・運用のための実装指針、機密情報管理、通信の確保、入力値検証、依存ライブラリ管理のガイドラン
+description: セキュアな開発・運用のための実装指針、機密情報管理、通信の確保、入力値検証、依存ライブラリ管理のガイドラインの定義
 ---
 
 # Security Guidelines
