@@ -1,0 +1,12 @@
+// markdownlint-cli2 configuration
+{
+  "config": {
+    "default": true,
+    // MD013/line-length - Line length
+    // 行の長さ制限を無効化（日本語の長い文章に対応）
+    "MD013": false,
+    // MD033/no-inline-html - Inline HTML
+    // インラインHTMLの使用を許可（<br />など）
+    "MD033": false
+  }
+}
