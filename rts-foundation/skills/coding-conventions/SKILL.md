@@ -7,7 +7,7 @@ description: .NET/C#のコーディング規約、命名規則、レイアウト
 
 ## 概要
 
-このSkillは、RevTechStudioで開発されるすべての.NETプロジェクトに適用されるコーディング規約を定義する。.NET 8以降の最新機能（C# 12/13/14、.NET 8/9/10）を積極的に活用し、可読性、保守性、パフォーマンスの高いコードを実現することを目的とする。
+このSkillは、開発されるすべての.NETプロジェクトに適用されるコーディング規約を定義する。.NET 8以降の最新機能（C# 12/13/14、.NET 8/9/10）を積極的に活用し、可読性、保守性、パフォーマンスの高いコードを実現することを目的とする。
 
 ## 責任範囲
 
@@ -496,7 +496,7 @@ public class Order
 良い例:
 
 ```csharp
-namespace RevTechStudio.Orders;
+namespace YourProject.Orders;
 
 public class OrderProcessor
 {
@@ -507,7 +507,7 @@ public class OrderProcessor
 悪い例:
 
 ```csharp
-namespace RevTechStudio.Orders
+namespace YourProject.Orders
 {
     public class OrderProcessor
     {
@@ -528,7 +528,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RevTechStudio.Orders;
+namespace YourProject.Orders;
 ```
 
 ## 型と変数
