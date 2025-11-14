@@ -1,0 +1,24 @@
+{
+  "name": "rts-plugins",
+  "owner": {
+    "name": "RevTechStudio"
+  },
+  "plugins": [
+    {
+      "name": "rts-foundation",
+      "source": "./rts-foundation",
+      "description": "RevTechStudio Foundation Plugin",
+      "author": {
+        "name": "RevTechStudio"
+      }
+    },
+    {
+      "name": "rts-plugin-generator",
+      "source": "./rts-plugin-generator",
+      "description": "RevTechStudio Plugin Generator",
+      "author": {
+        "name": "RevTechStudio"
+      }
+    }
+  ]
+}

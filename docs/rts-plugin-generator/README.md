@@ -44,6 +44,10 @@
 
 | 要素名 | 概要 | 完了 |
 |--------|------|-----|
-| generate-plugin | 分析結果からプラグイン要素を生成し、ドキュメント化する | - |
+| generate-agent | エージェント要素を個別に生成する | - |
+| generate-convention-skill | Convention Skill要素を個別に生成する | - |
+| generate-workflow-skill | Workflow Skill要素を個別に生成する | - |
+| generate-command | コマンド要素を個別に生成する | - |
+| generate-plugin | 分析結果からプラグイン要素全体を生成し、ドキュメント化する | - |
 | package-plugin | パッケージ化してダウンロード可能にする | - |
 | test-skills | 各スキルに対して単体テストを実施する | - |
