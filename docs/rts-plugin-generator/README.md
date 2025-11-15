@@ -48,6 +48,6 @@
 | generate-convention-skill | Convention Skill要素を個別に生成する | 完 |
 | generate-workflow-skill | Workflow Skill要素を個別に生成する | 完 |
 | generate-command | コマンド要素を個別に生成する | 完 |
-| generate-plugin | 分析結果からプラグイン要素全体を生成し、ドキュメント化する | - |
-| package-plugin | パッケージ化してダウンロード可能にする | - |
-| test-skills | 各スキルに対して単体テストを実施する | - |
+| generate-plugin | 分析結果からプラグイン要素全体を生成し、ドキュメント化する | 完 |
+| package-plugin | プラグインのリリース準備を実施する | 完 |
+| test-skills | 各スキルに対して単体テストを実施する | 完 |
