@@ -20,14 +20,29 @@ description: プルリクエストを作成する
 
 ## 実行フロー
 
-1. version-control-agentがversion-control-guidelinesスキルを使用して、現在のブランチ状態を確認する（git status、git branch）
-2. version-control-agentがversion-control-guidelinesスキルを使用して、リモートとの同期状態を確認する（git fetch、git status）
-3. version-control-agentがinteraction-guidelinesスキルを使用して、ブランチがリモートにpushされていない場合、ユーザーにpushを促す
-4. version-control-agentがversion-control-guidelinesスキルを使用して、ベースブランチからのコミット履歴を確認する（git log、git diff）
-5. version-control-agentがinteraction-guidelinesスキルを使用して、ユーザーと対話しながら変更の目的や影響範囲を確認する
-6. version-control-agentがversion-control-guidelinesスキルを使用して、規約に準拠したPRタイトルと説明を作成する
-7. version-control-agentがversion-control-guidelinesスキルを使用して、GitHubにプルリクエストを作成する（gh pr create）
-8. version-control-agentがinteraction-guidelinesスキルを使用して、作成されたPRのURLと次のステップをユーザーに報告する
+1. version-control-agentが以下のスキルを使用して、現在のブランチ状態を確認する（git status、git branch）
+   - version-control-guidelines（Git運用ガイドライン）
+
+2. version-control-agentが以下のスキルを使用して、リモートとの同期状態を確認する（git fetch、git status）
+   - version-control-guidelines（Git運用ガイドライン）
+
+3. version-control-agentが以下のスキルを使用して、ブランチがリモートにpushされていない場合、ユーザーにpushを促す
+   - interaction-guidelines（対話パターン）
+
+4. version-control-agentが以下のスキルを使用して、ベースブランチからのコミット履歴を確認する（git log、git diff）
+   - version-control-guidelines（Git運用ガイドライン）
+
+5. version-control-agentが以下のスキルを使用して、ユーザーと対話しながら変更の目的や影響範囲を確認する
+   - interaction-guidelines（対話パターン）
+
+6. version-control-agentが以下のスキルを使用して、規約に準拠したPRタイトルと説明を作成する
+   - version-control-guidelines（Git運用ガイドライン）
+
+7. version-control-agentが以下のスキルを使用して、GitHubにプルリクエストを作成する（gh pr create）
+   - version-control-guidelines（Git運用ガイドライン）
+
+8. version-control-agentが以下のスキルを使用して、作成されたPRのURLと次のステップをユーザーに報告する
+   - interaction-guidelines（対話パターン）
 
 ## 成果物
 
