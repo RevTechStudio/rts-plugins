@@ -45,7 +45,7 @@
 | 要素名 | 概要 | 完了 |
 |--------|------|-----|
 | generate-agent | エージェント要素を個別に生成する | 完 |
-| generate-convention-skill | Cogenerate-agentnvention Skill要素を個別に生成する | 完 |
+| generate-convention-skill | Convention Skill要素を個別に生成する | 完 |
 | generate-workflow-skill | Workflow Skill要素を個別に生成する | 完 |
 | generate-command | コマンド要素を個別に生成する | 完 |
 | generate-plugin | 分析結果からプラグイン要素全体を生成し、ドキュメント化する | - |
