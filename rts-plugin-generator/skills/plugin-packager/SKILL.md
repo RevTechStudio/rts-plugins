@@ -61,7 +61,7 @@ description: 生成したプラグインをZIP形式にまとめる
 
 収集対象ファイル（11個）:
 - README.md
-- agents/database-design-agent/AGENT.md
+- agents/database-design-agent.md
 - skills/entity-definition-collector/SKILL.md
 - skills/normalization-processor/SKILL.md
 - skills/er-diagram-generator/SKILL.md
@@ -69,8 +69,8 @@ description: 生成したプラグインをZIP形式にまとめる
 - skills/ddl-script-generator/SKILL.md
 - skills/database-naming-conventions/SKILL.md
 - skills/normalization-rules/SKILL.md
-- commands/design-database/COMMAND.md
-- commands/generate-schema/COMMAND.md
+- commands/design-database.md
+- commands/generate-schema.md
 
 除外ファイル:
 - .git/（Gitディレクトリ）
@@ -204,7 +204,7 @@ MANIFEST.md:
 - README.md
 
 ## エージェント
-- agents/database-design-agent/AGENT.md
+- agents/database-design-agent.md
 
 ## スキル
 - skills/entity-definition-collector/SKILL.md
@@ -216,8 +216,8 @@ MANIFEST.md:
 - skills/normalization-rules/SKILL.md
 
 ## コマンド
-- commands/design-database/COMMAND.md
-- commands/generate-schema/COMMAND.md
+- commands/design-database.md
+- commands/generate-schema.md
 
 合計: 14ファイル
 
@@ -265,8 +265,7 @@ database-design-plugin/
   MANIFEST.md
   README.md
   agents/
-    database-design-agent/
-      AGENT.md
+    database-design-agent.md
   skills/
     entity-definition-collector/
       SKILL.md
@@ -283,10 +282,8 @@ database-design-plugin/
     normalization-rules/
       SKILL.md
   commands/
-    design-database/
-      COMMAND.md
-    generate-schema/
-      COMMAND.md
+    design-database.md
+    generate-schema.md
 
 ファイル数: 14個
 圧縮前サイズ: 125 KB

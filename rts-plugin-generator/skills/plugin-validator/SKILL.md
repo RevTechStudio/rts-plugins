@@ -38,9 +38,9 @@ description: 生成したプラグイン全体の整合性・完全性を検証�
 **確認対象:**
 
 - README.md（プラグインルート）
-- agents/*/AGENT.md
+- agents/*.md
 - skills/*/SKILL.md
-- commands/*/COMMAND.md
+- commands/*.md
 - .claudeignore（オプション）
 
 **良い例:**
@@ -127,7 +127,7 @@ database-design-plugin/
 - ✓ commands/ ディレクトリが存在する
 
 ディレクトリ構造: ✓ OK
-- ✓ agents/database-design-agent/AGENT.md
+- ✓ agents/database-design-agent.md
 - ✓ skills/entity-definition-collector/SKILL.md
 - ✓ skills/normalization-processor/SKILL.md
 - ✓ skills/er-diagram-generator/SKILL.md
@@ -135,8 +135,8 @@ database-design-plugin/
 - ✓ skills/ddl-script-generator/SKILL.md
 - ✓ skills/database-naming-conventions/SKILL.md
 - ✓ skills/normalization-rules/SKILL.md
-- ✓ commands/design-database/COMMAND.md
-- ✓ commands/generate-schema/COMMAND.md
+- ✓ commands/design-database.md
+- ✓ commands/generate-schema.md
 
 フロントマター形式: ✓ OK
 - ✓ 全てのファイルでフロントマターがパースできる
@@ -160,11 +160,11 @@ database-design-plugin/
 - ✗ README.md が存在しない
 
 ディレクトリ構造: ✗ NG
-- ✗ agents/database-design-agent.md（サブディレクトリに配置されていない）
+- ✗ agents/database-design-agent.md が存在しない
 - ✗ skills/entity-collector.md（ファイル名が SKILL.md ではない）
 
 フロントマター形式: ✗ NG
-- ✗ agents/database-design-agent/AGENT.md でフロントマターがパースできない
+- ✗ agents/database-design-agent.md でフロントマターがパースできない
 
 必須フィールド: ✗ NG
 - ✗ skills/entity-definition-collector/SKILL.md に description フィールドが存在しない
