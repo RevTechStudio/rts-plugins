@@ -23,11 +23,26 @@ description: 規約・ガイドラインからConvention Skillを生成する
 
 ## 実行フロー
 
-1. plugin-development-agentがconvention-skill-generatorスキルを使用して、既存のConvention Skillを確認し、重複を避ける（plugin-architecture-conventionに従う）
-2. plugin-development-agentがconvention-skill-generatorスキルを使用して、引数でファイルパスが指定された場合はそのファイルを読み込み、内容を解析してテンプレートに当てはめる（interaction-guidelinesに従う）
-3. plugin-development-agentがconvention-skill-generatorスキルを使用して、引数がない場合は対話を通じてスキルの役割、適用範囲、規約内容、チェックリストなどの情報を収集する（interaction-guidelinesに従う）
-4. plugin-development-agentがconvention-skill-generatorスキルを使用して、収集した情報を基にConvention Skillファイルのコンテンツを生成する（element-definition-conventionに従う）
-5. plugin-development-agentがconvention-skill-generatorスキルを使用して、markdownlint検証を実施する（documentation-standardsに従う）
+1. plugin-development-agentが以下のスキルを使用して、既存のConvention Skillを確認し、重複を避ける
+   - convention-skill-generator（スキル確認）
+   - plugin-architecture-convention（アーキテクチャ規約遵守）
+
+2. plugin-development-agentが以下のスキルを使用して、引数でファイルパスが指定された場合はそのファイルを読み込み、内容を解析する
+   - convention-skill-generator（ファイル解析）
+   - interaction-guidelines（対話パターン）
+
+3. plugin-development-agentが以下のスキルを使用して、引数がない場合は対話を通じて情報を収集する
+   - convention-skill-generator（情報収集）
+   - interaction-guidelines（対話パターン）
+
+4. plugin-development-agentが以下のスキルを使用して、コンテンツを生成する
+   - convention-skill-generator（コンテンツ生成）
+   - element-definition-convention（定義ルール遵守）
+
+5. plugin-development-agentが以下のスキルを使用して、markdownlint検証を実施する
+   - convention-skill-generator（検証実施）
+   - documentation-standards（記述標準遵守）
+
 6. plugin-development-agentがユーザーからのフィードバックを収集して必要に応じて修正する
 
 ## 成果物

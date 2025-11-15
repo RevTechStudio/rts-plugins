@@ -23,10 +23,22 @@ description: エージェント要素を個別に生成する
 
 ## 実行フロー
 
-1. plugin-development-agentがagent-generatorスキルを使用して、既存エージェントを確認し、重複を避ける（plugin-architecture-conventionに従う）
-2. plugin-development-agentがagent-generatorスキルを使用して、ユーザーとの対話を通じてエージェントの責任範囲、役割、注意事項などの情報を収集する（interaction-guidelinesに従う）
-3. plugin-development-agentがagent-generatorスキルを使用して、収集した情報を基にエージェントファイルのコンテンツを生成する（element-definition-conventionに従う）
-4. plugin-development-agentがagent-generatorスキルを使用して、markdownlint検証を実施する（documentation-standardsに従う）
+1. plugin-development-agentが以下のスキルを使用して、既存エージェントを確認し、重複を避ける
+   - agent-generator（エージェント確認）
+   - plugin-architecture-convention（アーキテクチャ規約遵守）
+
+2. plugin-development-agentが以下のスキルを使用して、ユーザーとの対話を通じて情報を収集する
+   - agent-generator（情報収集）
+   - interaction-guidelines（対話パターン）
+
+3. plugin-development-agentが以下のスキルを使用して、コンテンツを生成する
+   - agent-generator（コンテンツ生成）
+   - element-definition-convention（定義ルール遵守）
+
+4. plugin-development-agentが以下のスキルを使用して、markdownlint検証を実施する
+   - agent-generator（検証実施）
+   - documentation-standards（記述標準遵守）
+
 5. plugin-development-agentがユーザーからのフィードバックを収集して必要に応じて修正する
 
 ## 成果物
