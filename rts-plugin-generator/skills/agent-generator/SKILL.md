@@ -1,6 +1,6 @@
 ---
 name: agent-generator
-description: ユーザーの責任範囲定義から、Agentのマークダウンファイルを生成する
+description: ユーザーの責任範囲定義から、Agentのマークダウンファイルを生成する。エージェント作成時、プラグイン要素生成時、またはユーザーがエージェント定義、責任範囲、Agent生成、エージェントドキュメントに言及した際に使用する。
 ---
 
 # Agent Generator

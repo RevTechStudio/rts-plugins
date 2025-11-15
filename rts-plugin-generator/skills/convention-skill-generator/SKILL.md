@@ -1,6 +1,6 @@
 ---
 name: convention-skill-generator
-description: ユーザーの規約・ガイドラインから、Convention Skillのマークダウンファイルを生成する
+description: ユーザーの規約・ガイドラインから、Convention Skillのマークダウンファイルを生成する。規約スキル作成時、ガイドライン文書化時、またはユーザーがConvention Skill、コーディング規約、ガイドライン定義、標準化に言及した際に使用する。
 ---
 
 # Convention Skill Generator

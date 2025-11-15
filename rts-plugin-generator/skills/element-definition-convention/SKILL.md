@@ -1,6 +1,6 @@
 ---
 name: element-definition-convention
-description: プラグイン要素の定義ルール（命名規則、必須項目、記述フォーマット）
+description: プラグイン要素の定義ルール（命名規則、必須項目、記述フォーマット）を定義する。プラグイン要素作成時、エージェント・スキル・コマンド定義時、またはユーザーが命名規則、フロントマター、必須項目、記述フォーマットに言及した際に使用する。
 ---
 
 # Element Definition Convention

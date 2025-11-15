@@ -1,6 +1,6 @@
 ---
 name: version-control-guidelines
-description: Git運用ガイドライン、ブランチ戦略、コミットメッセージ、プルリクエスト、個人開発とチーム開発の使い分け
+description: Git運用ガイドライン、ブランチ戦略、コミットメッセージ（Conventional Commits）、プルリクエスト作成、個人開発とチーム開発の使い分けを定義する。Gitコミット作成時、ブランチ作成時、PR作成時、またはユーザーがコミットメッセージ、ブランチ戦略、バージョン管理、Conventional Commits、Semantic Versioningに言及した際に使用する。
 ---
 
 # Version Control Guidelines

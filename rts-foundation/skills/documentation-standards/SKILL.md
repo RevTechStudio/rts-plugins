@@ -1,6 +1,6 @@
 ---
 name: documentation-standards
-description: Markdownドキュメント作成時の記述規約、スタイルガイド、markdownlint検証ルールの定義
+description: Markdownドキュメントの記述規約、スタイルガイド、markdownlint検証ルールを定義する。Markdownファイル作成時、README作成時、ドキュメント編集時、またはユーザーがドキュメント標準、Markdown形式、markdownlint、ドキュメントスタイルに言及した際に使用する。
 ---
 
 # Documentation Standards

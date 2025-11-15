@@ -1,6 +1,6 @@
 ---
 name: command-generator
-description: エージェントとスキルの組み合わせから、Commandのマークダウンファイルを生成する
+description: エージェントとスキルの組み合わせから、Commandのマークダウンファイルを生成する。コマンド作成時、スラッシュコマンド定義時、またはユーザーがCommand生成、スラッシュコマンド、コマンド定義、実行フローに言及した際に使用する。
 ---
 
 # Command Generator
