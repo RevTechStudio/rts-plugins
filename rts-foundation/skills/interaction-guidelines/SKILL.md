@@ -1,6 +1,6 @@
 ---
 name: interaction-guidelines
-description: ユーザーとの効果的な対話パターン、質問生成、曖昧さ解消、合意形成、ユーザー負担軽減のガイドライン
+description: ユーザーとの効果的な対話パターン、質問生成、曖昧さ解消、合意形成、ユーザー負担軽減のガイドラインを定義する。ユーザーに質問する際、要件を確認する際、フィードバックを収集する際、またはユーザーが対話改善、質問方法、確認プロセス、Progressive Disclosureに言及した際に使用する。
 ---
 
 # Interaction Guidelines

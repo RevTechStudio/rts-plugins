@@ -1,6 +1,6 @@
 ---
 name: coding-conventions
-description: .NET/C#のコーディング規約、命名規則、レイアウト、C# 12/13/14の最新機能活用ガイドライン
+description: .NET/C#のコーディング規約、命名規則、レイアウト、C# 12/13/14の最新機能活用ガイドラインを定義する。C#/.NETコード作成時、クラス・メソッド命名時、コードフォーマット時、またはユーザーがコーディング規約、命名規則、C#ベストプラクティス、Primary Constructors、Collection Expressions、field キーワードに言及した際に使用する。
 ---
 
 # Coding Conventions

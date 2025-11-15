@@ -1,6 +1,6 @@
 ---
 name: plugin-architecture-convention
-description: プラグイン全体の構造設計原則（要素の役割分担、階層構造、依存関係管理）
+description: プラグイン全体の構造設計原則（要素の役割分担、階層構造、依存関係管理）を定義する。プラグイン設計時、アーキテクチャレビュー時、またはユーザーがプラグイン構造、設計原則、独立性、汎用性、依存関係管理に言及した際に使用する。
 ---
 
 # Plugin Architecture Convention

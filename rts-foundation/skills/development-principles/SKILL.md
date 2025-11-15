@@ -1,6 +1,6 @@
 ---
 name: development-principles
-description: 開発における基本原則（曖昧さ禁止、矛盾検出、推察禁止）
+description: 開発における基本原則（曖昧さ禁止、矛盾検出、推察禁止）を定義する。要件定義時、仕様確認時、設計レビュー時、またはユーザーが曖昧な要件、仕様の矛盾、不明点の確認、推測回避に言及した際に使用する。
 ---
 
 # Development Principles

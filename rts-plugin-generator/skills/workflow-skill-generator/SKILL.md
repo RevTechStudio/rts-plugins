@@ -1,6 +1,6 @@
 ---
 name: workflow-skill-generator
-description: ユーザーの作業フローから、Workflow Skillのマークダウンファイルを生成する
+description: ユーザーの作業フローから、Workflow Skillのマークダウンファイルを生成する。ワークフロースキル作成時、業務プロセス文書化時、またはユーザーがWorkflow Skill、作業フロー、業務プロセス、手順書に言及した際に使用する。
 ---
 
 # Workflow Skill Generator

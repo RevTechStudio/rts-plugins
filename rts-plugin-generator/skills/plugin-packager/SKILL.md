@@ -1,6 +1,6 @@
 ---
 name: plugin-packager
-description: 生成したプラグインをZIP形式にまとめる
+description: 生成したプラグインをZIP形式にまとめる。プラグインパッケージング時、配布準備時、またはユーザーがZIP作成、プラグイン配布、パッケージング、リリース準備に言及した際に使用する。
 ---
 
 # Plugin Packager

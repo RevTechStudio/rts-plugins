@@ -1,6 +1,6 @@
 ---
 name: responsibility-mapper
-description: 作業の責任範囲を整理し、エージェント定義に必要な情報を抽出する
+description: 作業の責任範囲を整理し、エージェント定義に必要な情報を抽出する。エージェント設計時、責任範囲整理時、またはユーザーが責任範囲、役割分担、責任境界、エージェント構成に言及した際に使用する。
 ---
 
 # Responsibility Mapper

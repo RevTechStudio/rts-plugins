@@ -1,6 +1,6 @@
 ---
 name: element-relationship-analyzer
-description: プラグイン要素間の依存関係や呼び出し順序を分析する
+description: プラグイン要素間の依存関係や呼び出し順序を分析する。プラグイン整合性確認時、依存関係検証時、またはユーザーが要素間依存、呼び出し順序、循環依存、アーキテクチャ検証に言及した際に使用する。
 ---
 
 # Element Relationship Analyzer

@@ -1,6 +1,6 @@
 ---
 name: issue-management-guidelines
-description: Issue作成・分類・管理のガイドライン、テンプレート、ラベル運用、ライフサイクル管理の定義
+description: Issue作成・分類・管理のガイドライン、テンプレート、ラベル運用、ライフサイクル管理を定義する。Issue作成時、バグ報告時、タスク管理時、またはユーザーがIssue、バグレポート、タスク管理、ラベル運用、Issueテンプレートに言及した際に使用する。
 ---
 
 # Issue Management Guidelines

@@ -1,6 +1,6 @@
 ---
 name: skill-granularity-convention
-description: スキルの適切な粒度を定義（1スキル1目的、分割基準、結合基準）
+description: スキルの適切な粒度を定義（1スキル1目的、分割基準、結合基準）する。スキル設計時、粒度判断時、またはユーザーがスキル粒度、1スキル1目的、分割基準、結合基準、スキル設計原則に言及した際に使用する。
 ---
 
 # Skill Granularity Convention
