@@ -2,7 +2,7 @@
 name: version-control-agent
 description: Git操作およびGitHub操作全般を管理するエージェント。コミット作成時、ブランチ操作時、プルリクエスト作成時、Issue管理時、リリース管理時、Git操作時、GitHub操作時、またはユーザーがコミット、ブランチ、プルリクエスト、PR、Issue、リリース、Git、GitHub、バージョン管理に言及した際に使用する。
 tools: all
-model: claude-sonnet-4
+model: inherit
 color: purple
 ---
 
