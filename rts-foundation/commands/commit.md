@@ -20,13 +20,26 @@ description: 変更をコミットする
 
 ## 実行フロー
 
-1. version-control-agentがversion-control-guidelinesスキルを使用して、現在の変更状況を確認する（git status）
-2. version-control-agentがversion-control-guidelinesスキルを使用して、変更内容の詳細を確認する（git diff）
-3. version-control-agentがinteraction-guidelinesスキルを使用して、ユーザーと対話しながら変更の意図や目的を確認する
-4. version-control-agentがversion-control-guidelinesスキルを使用して、規約に準拠したコミットメッセージを作成する
-5. version-control-agentがversion-control-guidelinesスキルを使用して、変更をステージングする（git add）
-6. version-control-agentがversion-control-guidelinesスキルを使用して、コミットを実行する（git commit）
-7. version-control-agentがinteraction-guidelinesスキルを使用して、コミット結果をユーザーに報告する
+1. version-control-agentが以下のスキルを使用して、現在の変更状況を確認する（git status）
+   - version-control-guidelines（Git運用ガイドライン）
+
+2. version-control-agentが以下のスキルを使用して、変更内容の詳細を確認する（git diff）
+   - version-control-guidelines（Git運用ガイドライン）
+
+3. version-control-agentが以下のスキルを使用して、ユーザーと対話しながら変更の意図や目的を確認する
+   - interaction-guidelines（対話パターン）
+
+4. version-control-agentが以下のスキルを使用して、規約に準拠したコミットメッセージを作成する
+   - version-control-guidelines（Git運用ガイドライン）
+
+5. version-control-agentが以下のスキルを使用して、変更をステージングする（git add）
+   - version-control-guidelines（Git運用ガイドライン）
+
+6. version-control-agentが以下のスキルを使用して、コミットを実行する（git commit）
+   - version-control-guidelines（Git運用ガイドライン）
+
+7. version-control-agentが以下のスキルを使用して、コミット結果をユーザーに報告する
+   - interaction-guidelines（対話パターン）
 
 ## 成果物
 

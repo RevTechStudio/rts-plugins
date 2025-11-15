@@ -23,11 +23,26 @@ description: 作業フローからWorkflow Skillを生成する
 
 ## 実行フロー
 
-1. plugin-development-agentがworkflow-skill-generatorスキルを使用して、既存のWorkflow Skillを確認し、重複を避ける（plugin-architecture-conventionに従う）
-2. plugin-development-agentがworkflow-skill-generatorスキルを使用して、引数でファイルパスが指定された場合はそのファイルを読み込み、内容を解析してテンプレートに当てはめる（interaction-guidelinesに従う）
-3. plugin-development-agentがworkflow-skill-generatorスキルを使用して、引数がない場合は対話を通じてスキルの役割、ワークフローステップ、前提条件、事後条件などの情報を収集する（interaction-guidelinesに従う）
-4. plugin-development-agentがworkflow-skill-generatorスキルを使用して、収集した情報を基にWorkflow Skillファイルのコンテンツを生成する（element-definition-conventionに従う）
-5. plugin-development-agentがworkflow-skill-generatorスキルを使用して、markdownlint検証を実施する（documentation-standardsに従う）
+1. plugin-development-agentが以下のスキルを使用して、既存のWorkflow Skillを確認し、重複を避ける
+   - workflow-skill-generator（スキル確認）
+   - plugin-architecture-convention（アーキテクチャ規約遵守）
+
+2. plugin-development-agentが以下のスキルを使用して、引数でファイルパスが指定された場合はそのファイルを読み込み、内容を解析する
+   - workflow-skill-generator（ファイル解析）
+   - interaction-guidelines（対話パターン）
+
+3. plugin-development-agentが以下のスキルを使用して、引数がない場合は対話を通じて情報を収集する
+   - workflow-skill-generator（情報収集）
+   - interaction-guidelines（対話パターン）
+
+4. plugin-development-agentが以下のスキルを使用して、コンテンツを生成する
+   - workflow-skill-generator（コンテンツ生成）
+   - element-definition-convention（定義ルール遵守）
+
+5. plugin-development-agentが以下のスキルを使用して、markdownlint検証を実施する
+   - workflow-skill-generator（検証実施）
+   - documentation-standards（記述標準遵守）
+
 6. plugin-development-agentがユーザーからのフィードバックを収集して必要に応じて修正する
 
 ## 成果物
