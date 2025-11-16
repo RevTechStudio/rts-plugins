@@ -43,12 +43,23 @@ description: プラグイン全体の構造設計原則（要素の役割分担�
 ├── skills/
 │   ├── [Convention Skill名]/
 │   │   └── SKILL.md
-│   └── [Workflow Skill名]/
+│   │   ※ Convention Skillはtemplates/ディレクトリを持たない
+│   ├── [Workflow Skill (テンプレートなし)名]/
+│   │   └── SKILL.md
+│   └── [Workflow Skill (テンプレートあり)名]/
 │       ├── SKILL.md
-│       └── templates/ (必要に応じて)
+│       └── templates/
+│           ├── [テンプレート1].md
+│           └── [テンプレート2].md
 └── commands/
     └── [コマンド名].md
 ```
+
+**注釈:**
+
+- Convention Skillは規約を定義するだけで、templates/ディレクトリを持たない
+- Workflow Skillは、ドキュメント生成を含む場合のみtemplates/ディレクトリを持つ
+- テンプレートファイルは、ユーザーのプロジェクトにコピーされ使用される
 
 ### ファイルの配置ルール
 
@@ -150,6 +161,22 @@ description: プラグイン全体の構造設計原則（要素の役割分担�
 - API Designer: API仕様を設計する
 - Database Schema Designer: データベーススキーマを設計する
 
+**テンプレートファイル:**
+
+- Workflow Skillがドキュメント生成を含む場合、skills/[スキル名]/templates/配下にテンプレートファイルを配置する
+- テンプレートファイルは、ユーザーのプロジェクトにコピーされ、プロジェクト固有の情報を入力する際に使用される
+- テンプレートファイルを持たないWorkflow Skillも存在する（例: データ変換、分析処理など）
+
+**テンプレートファイルを持つ例:**
+
+- requirement-analysis-workflow: templates/requirements-document.md
+- test-specification-workflow: templates/test-specification.md, templates/test-case.md
+
+**テンプレートファイルを持たない例:**
+
+- data-transformation-workflow: データ変換処理のみを実行
+- code-analysis-workflow: コード分析のみを実行
+
 ### Convention Skill（コンベンションスキル）
 
 規約やガイドラインが定義されているスキルである。
@@ -165,6 +192,11 @@ description: プラグイン全体の構造設計原則（要素の役割分担�
 - Coding Convention: 変数命名規則、インデントルールなど
 - API Design Guideline: RESTful設計原則、エンドポイント命名規則など
 - Documentation Standard: ドキュメント記述標準、構造の標準化など
+
+**テンプレートファイル:**
+
+- Convention Skillは規約・ガイドラインを定義するだけで、テンプレートファイルを持たない
+- Convention Skill Generator（スキル生成時）はconvention-skill-template-*.mdを使用してSKILL.mdを生成するが、生成されたConvention Skill自体にはtemplates/ディレクトリを作成しない
 
 ## 依存関係管理の原則
 
@@ -187,6 +219,80 @@ description: プラグイン全体の構造設計原則（要素の役割分担�
 - スキルは他のスキルに依存しない
 - エージェントは特定のスキルに依存しない
 - スキルは特定のエージェントに依存しない
+
+## 要素の責任分担原則
+
+プラグイン開発において、Analyzer（分析スキル）とGenerator（生成スキル）の責任範囲を明確に分離する。
+
+### Analyzerの責任範囲
+
+Analyzerは**分析と特定**に責任を持つ。
+
+**責任:**
+
+- 必要な要素（機能、スキル、テンプレートなど）を分析する
+- 何が必要かを特定し、リストとして出力する
+- 要素間の関係を分析する
+- テンプレートファイルの必要性を特定する
+- どのスキルにどのテンプレートが必要かを分析する
+
+**禁止事項:**
+
+- ファイルを生成してはいけない
+- ファイルを配置してはいけない
+- 実装作業を行ってはいけない
+
+**例:**
+
+- domain-analyzer: 業務領域を分析し、必要な機能とテンプレートファイルリストを出力する
+- workflow-analyzer: 作業フローを分析し、必要なスキルとテンプレートファイルリストを出力する
+
+### Generatorの責任範囲
+
+Generatorは**生成と配置**に責任を持つ。
+
+**責任:**
+
+- 分析結果に基づいてファイルを生成する
+- 生成したファイルを適切な場所に配置する
+- SKILL.mdファイルを生成する
+- テンプレートファイルを生成する（Workflow Skillでドキュメント生成を含む場合）
+- markdownlint検証を実施する
+
+**原則:**
+
+- Analyzerの出力（テンプレートファイルリスト）を入力として受け取る
+- Convention Skillにはテンプレートファイルを生成しない
+- Workflow Skillには、必要に応じてテンプレートファイルを生成し、skills/[スキル名]/templates/配下に配置する
+
+**例:**
+
+- convention-skill-generator: Convention SkillのSKILL.mdを生成する（テンプレートファイルは生成しない）
+- workflow-skill-generator: Workflow SkillのSKILL.mdを生成し、必要に応じてテンプレートファイルも生成する
+
+### 責任分担の具体例
+
+#### ケース1: 仕様書作成プラグインの開発
+
+1. domain-analyzer（分析）:
+   - 「要件定義書作成」機能を特定
+   - requirements-document.md テンプレートが必要と判断
+   - テンプレートファイルリストを出力: `[{skill: "requirement-analysis-workflow", templates: ["requirements-document.md"]}]`
+
+2. workflow-skill-generator（生成）:
+   - requirement-analysis-workflow/SKILL.md を生成
+   - requirement-analysis-workflow/templates/requirements-document.md を生成・配置
+
+#### ケース2: コーディング規約プラグインの開発
+
+1. domain-analyzer（分析）:
+   - 「コーディング規約定義」機能を特定
+   - Convention Skillと判断
+   - テンプレートファイルリストを出力: `[]` （空）
+
+2. convention-skill-generator（生成）:
+   - coding-conventions/SKILL.md を生成
+   - テンプレートファイルは生成しない（Convention Skillのため）
 
 ## 独立性の原則（他要素への参照禁止）
 
@@ -385,6 +491,9 @@ public class OrderProcessor
 - [ ] 固有名詞を含めていない
 - [ ] 必要な規約やガイドラインをスキル内に直接記述している
 - [ ] Workflow SkillまたはConvention Skillのいずれかに分類できる
+- [ ] Convention Skillの場合、templates/ディレクトリを作成していない
+- [ ] Workflow Skillでドキュメント生成を含む場合、templates/ディレクトリにテンプレートファイルを配置している
+- [ ] テンプレートファイルのフロントマターが適切に定義されている（name, about, title等）
 - [ ] `[プラグイン名]/skills/[スキル名]/SKILL.md` の形式で配置されている
 - [ ] ファイル名が `SKILL.md`（大文字）になっている
 - [ ] ディレクトリ名がケバブケースで記述されている
