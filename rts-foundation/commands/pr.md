@@ -1,5 +1,5 @@
 ---
-name: pull-request
+name: pr
 description: プルリクエストを作成する
 ---
 
