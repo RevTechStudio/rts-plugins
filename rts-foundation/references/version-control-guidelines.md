@@ -1,24 +1,4 @@
----
-name: version-control-guidelines
-description: Git運用ガイドライン、ブランチ戦略、コミットメッセージ（Conventional Commits）、プルリクエスト作成、個人開発とチーム開発の使い分けを定義する。Gitコミット作成時、ブランチ作成時、PR作成時、またはユーザーがコミットメッセージ、ブランチ戦略、バージョン管理、Conventional Commits、Semantic Versioningに言及した際に使用する。
----
-
 # Version Control Guidelines
-
-## 概要
-
-このSkillは、Gitを使用したバージョン管理の運用ガイドラインを定義する。Conventional Commits形式のコミットメッセージ、適切なPRレビュープロセス、Semantic Versioningによるリリース管理など、品質を担保しつつ効率的な開発を実現することを目的とする。個人開発ではセルフレビュー可、チーム開発では最低1名のレビュー承認が必要となる。
-
-## 責任範囲
-
-このSkillは以下の範囲をカバーする:
-
-- 個人開発とチーム開発の運用方針
-- ブランチ戦略（個人開発・チーム開発別）
-- コミットメッセージの記述ルール（Conventional Commits形式）
-- プルリクエストのガイドライン
-- マージ方針とコンフリクト解決
-- タグとリリース管理（Semantic Versioning）
 
 ## 基本方針
 
